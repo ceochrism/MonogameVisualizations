@@ -41,9 +41,21 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Animation.cs" />
+    <Compile Include="Frame.cs" />
+    <Compile Include="GameObjects\Sprites\AnimatedSprite.cs" />
+    <Compile Include="GameObjects\Button\Button.cs" />
+    <Compile Include="Camera\Camera.cs" />
     <Compile Include="Game1.cs" />
+    <Compile Include="GameObjectManager\GameObject.cs" />
+    <Compile Include="GameObjectManager\GameObjectManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ScreenManager\Screen.cs" />
+    <Compile Include="ScreenManager\ScreenManager.cs" />
+    <Compile Include="ScreenManager\ScreenNames.cs" />
+    <Compile Include="GameObjects\Sprites\Sprite.cs" />
+    <Compile Include="GameObjects\Text\Text.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">
