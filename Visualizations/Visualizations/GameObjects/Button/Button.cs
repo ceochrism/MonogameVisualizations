@@ -27,7 +27,7 @@ namespace Visualizations
         public Color TargetColor { get; set; }
         public TimeSpan FadeTime { get; set; }
 
-        public Button(Vector2 position, Vector2 size, Texture2D image, Color tint, string message = "", SpriteFont font = null, object Tag = null, float scale = 1) : base(position, size, image, tint, Tag, scale)
+        public Button(Vector2 position, Vector2 size, Texture2D image, Color tint, string message = "", SpriteFont font = null, object Tag = null, Vector2 scale = default) : base(position, size, image, tint, Tag, scale)
         {
             wasPreviouslyDown = false;
             wasDownInButton = false;

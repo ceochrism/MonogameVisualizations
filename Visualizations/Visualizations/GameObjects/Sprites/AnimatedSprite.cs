@@ -12,7 +12,7 @@ namespace Visualizations
     {
         List<Animation> animations;
         int currentAnimation = 0;
-        public AnimatedSprite(Vector2 position, Vector2 size, Color tint, List<Animation> animations, Texture2D image = null,object Tag = null, float scale = 1) : base(position, size, image, tint, Tag, scale)
+        public AnimatedSprite(Vector2 position, Vector2 size, Color tint, List<Animation> animations, Texture2D image = null,object Tag = null, Vector2 scale = default) : base(position, size, image, tint, Tag, scale)
         {
             this.animations = animations;
         }

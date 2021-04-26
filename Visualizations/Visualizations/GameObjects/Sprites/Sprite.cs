@@ -17,31 +17,35 @@ namespace Visualizations
 
         public Color Tint { get; set; }
 
-        public float Scale { get; set; }
+        public Vector2 Scale { get; set; }
 
         public float Rotation { get; set; } = 0;
 
-        public Vector2 Origin { get; set; }
+        public Vector2 Origin { get { return new Vector2((float)Image.Width/2, (float)Image.Height/2); } }
 
         public SpriteEffects SpriteEffects { get; set; } = SpriteEffects.None;
 
-        public Rectangle HitBox { get { return new Rectangle((int)Position.X, (int)Position.Y, (int)(Size.X * Scale), (int)(Size.Y * Scale)); } }
+        public Rectangle HitBox { get { return new Rectangle((int)(Position.X/* - Origin.X*/), (int)(Position.Y /*- Origin.Y*/), (int)(Size.X * Scale.X), (int)(Size.Y * Scale.Y)); } }
 
-        public Sprite(Vector2 position, Vector2 size, Texture2D image, Color tint, object Tag = null, float scale = 1.0f, Vector2 Origin = default) : base(position,Tag)
+        public Sprite(Vector2 position, Vector2 size, Texture2D image, Color tint, object Tag = null, Vector2 scale = default) : base(position,Tag)
         {
             Size = size;
             Image = image;
             Tint = tint;
-            Scale = scale;
-            if (Origin == default)
+            if (scale == default)
             {
-                this.Origin = new Vector2(HitBox.Width / 2, HitBox.Height / 2);
+                this.Scale = Vector2.One;
+            }
+            else
+            {
+                Scale = scale;
             }
         }
 
         public override void Draw(SpriteBatch sb)
         {
-            sb.Draw(Image, HitBox, null, Tint, Rotation, Origin, SpriteEffects, 0);
+
+            sb.Draw(Image, HitBox, sourceRectangle: null, Tint, Rotation, Origin, SpriteEffects, 0);
         }
 
         public override void Update(GameTime gameTime)

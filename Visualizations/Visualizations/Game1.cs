@@ -12,6 +12,7 @@ namespace Visualizations
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        Texture2D texture;
 
         Sprite test;
         Sprite test2;
@@ -45,10 +46,11 @@ namespace Visualizations
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            test = new Sprite(new Vector2(400, 100), new Vector2(100, 100), Content.Load<Texture2D>("pixel"), Color.Black, "test", 2.0f);
-            test.Rotation = (float)Math.PI / 2;
+            texture = Content.Load<Texture2D>("pixel");
+            test = new Sprite(new Vector2(300, 100), new Vector2(100,100), Content.Load<Texture2D>("pixel"), Color.Black, "test", new Vector2(2,2));
+            test.Rotation = (float)Math.PI / 4;
 
-            test2 = new Sprite(new Vector2(100, 100), new Vector2(100, 100), Content.Load<Texture2D>("pixel"), Color.Red, "test", 2.0f, new Vector2(200,200));
+            test2 = new Sprite(new Vector2(200, 200), new Vector2(100,100), Content.Load<Texture2D>("pixel"), Color.Red, "test", new Vector2(.5f,.5f));
             test2.Rotation = (float)Math.PI / 2;
 
             // TODO: use this.Content to load your game content here
